@@ -1,0 +1,53 @@
+.card {
+  height: 250px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0;
+  background: red;
+  min-width: 200px;
+
+  .card-img-overlay {
+    color: black;
+    // display: none;
+    background: green;
+    border-radius: 0;
+    height: inherit;
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    background-clip: border-box;
+
+    .bio {
+      flex: 1 1 auto;
+      padding: 10px;
+
+      .company-info {
+        // text-overflow: ellipsis;
+
+        // /* Required for text-overflow to do anything */
+        // white-space: nowrap;
+        // overflow: hidden;
+      }
+    }
+
+    .card-footer {
+      padding: 10px;
+      background: red;
+
+      .card-text.truncate {
+        display: -webkit-box;
+        -webkit-line-clamp: var(--line-clamp, 1);
+      }
+    }
+  }
+
+  &:hover {
+    .card-img-overlay {
+      color: black;
+      display: flex;
+      cursor: pointer;
+    }
+  }
+}

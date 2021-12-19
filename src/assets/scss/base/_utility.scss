@@ -1,14 +1,54 @@
 @import './variables';
 
 html {
+  --lh: 1.4rem;
+  line-height: var(--lh);
   body {
     margin: 0;
     padding: 0;
+    background-color: #c4c4c4;
+    padding: 20px;
+    height: 100vh;
+    max-height: 100vh;
+    min-height: 100vh;
+    overflow-y: hidden;
   }
 
   * {
     box-sizing: border-box;
-    font-family: $nunito;
+    font-family: $font;
     margin: 0;
+  }
+}
+
+.truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-clamp, 5);
+  -webkit-box-orient: vertical;
+  word-break: var(--word-break, 'none');
+  overflow: hidden;
+  font-size: var(--font-size, 1em);
+  width: var(--width, 100%);
+  position: relative;
+  background: inherit;
+
+  // fade text's last word, if clamped ()
+  &::after {
+    content: '';
+    width: 0;
+    height: 2ch;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+    background: inherit;
+    mask-image: linear-gradient(to left, black, transparent);
+    transition: 0.2s;
+  }
+
+  &.clamped {
+    &::after {
+      width: 4em;
+    }
   }
 }
